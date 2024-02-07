@@ -1,4 +1,4 @@
-str = input("Enter the file name: ")
+str = input("Enter the file name: ").lower().replace(" ", "")
 match str[-4::]:
     case ".jpg":
         print("image/jpg")
@@ -12,3 +12,5 @@ match str[-4::]:
         print("compressed/zip")
     case ".png":
         print("image/png")
+    case other:
+        print("application/octet-stream")
