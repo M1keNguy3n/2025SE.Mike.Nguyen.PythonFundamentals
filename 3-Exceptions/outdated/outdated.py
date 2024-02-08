@@ -25,25 +25,38 @@ while prompt:
             str = input("Enter a valid date: ")
             continue
     else:
-        month, day, year = str.split("/")
-
+        try:
+            month, day, year = str.split("/")
+        except ValueError:
+            str = input("Enter a valid date: ")
+            continue
+    # Day check: 0 < day < 32
     if int(day) > 0 and int(day) < 32:
         date += day
         date += "-"
     else:
+        date = ""
         str = input("Enter a valid date: ")
         continue
+    # Month check:
+    #   Non-Numeric: Check dict, if not, fails
+    #   Numeric: Check 0 < month < 13
     if not month.isnumeric():
         if month in dict:
             date += dict[month]
             date += "-"
         else:
+            date = ""
             str = input("Enter a valid date: ")
             continue
     elif int(month) < 13 and int(month) > 0:
         date += month
         date += "-"
-
+    else:
+        date = ""
+        str = input("Enter a valid date: ")
+        continue
+    # Year check: year > 0
     if int(year) > 0:
         date += year
         break
