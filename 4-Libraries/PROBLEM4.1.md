@@ -8,7 +8,7 @@ See [carpedm20.github.io/emoji/all.html?enableList=enable_list_alias](https://ca
 In a file called `emojize.py`, implement a program that prompts the user for a `str` in English and then outputs the “emojized” version of that `str`, converting any codes (or aliases) therein to their corresponding emoji.
 
 ## Hints
-- Note that the `emoji` module comes with two functions, per [pypi.org/project/emoji](https://pypi.org/project/emoji/), one of which is `emojize`, which takes an optional, named parameter called language. You can install it with:
+- Note that the `emoji` module comes with two functions, per [pypi.org/project/emoji](p), one of which is `emojize`, which takes an optional, named parameter called language. You can install it with:
 
 		pip install emoji
 
