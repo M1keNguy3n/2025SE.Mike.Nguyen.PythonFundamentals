@@ -34,7 +34,7 @@ Here’s how to test your code manually. At the `bank/ $` prompt in your termina
 1. Run your program with `python bank.py`. Type `Hello` and press Enter. Your program should output:
 
 		$0
-2. Run your program with python bank.py. Type `Hello`, Newman and press Enter. Your program should output:
+2. Run your program with python bank.py. Type `Hello, Newman` and press Enter. Your program should output:
 
 		$0
 3. Run your program with `python bank.py`. Type `How you doing?` and press Enter. Your program should output:
