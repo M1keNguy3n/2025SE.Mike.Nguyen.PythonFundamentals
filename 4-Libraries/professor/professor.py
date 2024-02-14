@@ -7,21 +7,24 @@ def main():
     score = 0
     for i in range(10):
         x, y = generate_integer(level)
-        try: 
-            ans = int(input(f"{x} + {y} = "))
-        except ValueError:
         while count < 3:
-            if ans != x + y:
+            try:
                 ans = int(input(f"{x} + {y} = "))
+                if ans != x + y:
+                    count += 1
+                    print("EEE")
+                    continue
+                else:
+                    score += 1
+                    break
+            except ValueError:
                 count += 1
                 print("EEE")
-
-            else:
-                score += 1
-                break
-
+                continue
         if count == 3:
+            count = 0
             print(f"{x} + {y} = {x + y}")
+    print(f"Score: {score}")
 
 
 def get_level():
