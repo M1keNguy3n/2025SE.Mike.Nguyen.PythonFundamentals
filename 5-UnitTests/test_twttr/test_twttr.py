@@ -6,12 +6,9 @@ def main():
 
 
 def test_twttr():
-    tests = {"watermelon": "wtrmln", "cake": "ck", "twitter": "twttr"}
-    for i, j in tests.items():
-        try:
-            assert shorten(i) == j
-        except AssertionError:
-            print(f"Failed test, returned {shorten(i)}")
+    assert shorten("watermelon") == "wtrmln"
+    assert shorten("cake") == "ck"
+    assert shorten("twitter") == "twttr"
 
 
 if __name__ == "__main__":
