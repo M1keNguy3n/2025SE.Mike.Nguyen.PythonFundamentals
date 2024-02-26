@@ -2,7 +2,11 @@ import sys
 
 
 def main():
-    filename = input("Enter a file name: ")
+    if len(sys.argv) >= 3:
+        sys.exit("too many command-line arguments")
+    elif len(sys.argv) < 2:
+        sys.exit("too few command-line arguments")
+    filename = sys.argv[1]
     if valid_filename(filename):
         print(count(filename))
     else:
@@ -15,14 +19,18 @@ def valid_filename(filename):
 
 def count(filename):
     count = 0
-    arr = []
-    with open(filename, "r") as f:
-        for line in f:
-            if line == "\n" or line.startswith("#") or line.startswith('"'):
-                continue
-            else:
-                arr.append(line.rstrip())
-                count += 1
+    try:
+        with open(filename, "r") as f:
+            for line in f:
+                line = line.strip()
+                print(line)
+                if line.startswith("#") or line.startswith('"""') or line.isspace():
+                    print(line)
+                    continue
+                else:
+                    count += 1
+    except FileNotFoundError:
+        return "File does not exist"
     return count
 
 
