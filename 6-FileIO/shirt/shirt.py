@@ -25,11 +25,13 @@ def main():
 
 def valid(filepath1, filepath2):
     extensions = [".jpg", ".png", ".jpeg"]
-    if not os.path.splitext(filepath1)[1].lower() in extensions:
+    input_extension = os.path.splitext(filepath1)[1].lower()
+    output_extension = os.path.splitext(filepath2)[1].lower()
+    if input_extension not in extensions:
         sys.exit("Invalid input.")
-    if not os.path.splitext(filepath2)[1].lower() in extensions:
+    if output_extension not in extensions:
         sys.exit("Invalid input.")
-    if os.path.splitext(filepath1)[1].lower() != os.path.splitext(filepath2)[1].lower():
+    if input_extension != output_extension:
         sys.exit("Different extensions.")
 
 
