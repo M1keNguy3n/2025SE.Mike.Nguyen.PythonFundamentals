@@ -26,7 +26,9 @@
 				"ms-python.vscode-pylance",
 				"ms-vscode-remote.remote-containers",
 				"GitHub.codespaces",
-				"McCarter.start-git-bash"
+				"McCarter.start-git-bash",
+				"ms-vscode-remote.remote-wsl",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},
