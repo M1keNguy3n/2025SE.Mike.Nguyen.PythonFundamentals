@@ -53,8 +53,8 @@ def main():
                 continue
             else:
                 print(str_password(password))
-                input = input("Another password? y/n: ")
-                if input == "y":
+                resp = input("Another password? y/n: ")
+                if resp == "y":
                     continue
                 else:
                     break
