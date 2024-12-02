@@ -1,44 +1,59 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:0-3.11",
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			"settings": {
-				"files.autoSave": "onFocusChange",
-				"editor.formatOnPaste": true,
-				"editor.formatOnSave": true,
-				"editor.defaultFormatter": "ms-python.black-formatter",
-				"editor.fontSize": 18
-			},
-			"extensions": [
-				"ms-python.flake8",
-				"ms-python.black-formatter",
-				"ms-python.flake8",
-				"oderwat.indent-rainbow",
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"ms-vscode-remote.remote-containers",
-				"GitHub.codespaces",
-				"McCarter.start-git-bash",
-				"ms-vscode-remote.remote-wsl",
-				"ms-azuretools.vscode-docker"
-			]
-		}
-	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [9000],
-	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
-	// More info: https://containers.dev/implementors/json_reference/#port-attributes
-	"portsAttributes": {},
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install -r requirements.txt"
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  "name": "Python Flask Development Container",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "",
+  "postAttachCommand": {},
+  "portsAttributes": {
+    "5000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.autoSave": "onFocusChange",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter"
+        },
+        "editor.fontSize": 18,
+        "terminal.integrated.defaultProfile.windows": "Git Bash",
+        "window.restoreWindows": "preserve",
+        "workbench.editorAssociations": {
+          "*.md": "vscode.markdown.preview.editor"
+        }
+      },
+      "extensions": [
+        "McCarter.start-git-bash",
+        "yy0931.vscode-sqlite3-editor",
+        "medo64.render-crlf",
+        "ecmel.vscode-html-css",
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "ritwickdey.LiveServer",
+        "tomoki1207.pdf",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-wsl",
+        "GitHub.codespaces",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "ms-vscode-remote.remote-wsl",
+        "ms-azuretools.vscode-docker",
+        "yahyabatulu.vscode-markdown-alert",
+        "bierner.markdown-preview-github-styles",
+        "mechatroner.rainbow-csv",
+        "ms-python.pylint"
+      ]
+    }
+  },
+  "forwardPorts": [5000]
 }
